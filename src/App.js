@@ -21,12 +21,12 @@ class App extends Component {
         <React.Fragment>
           <Router>
               <Route exact path='/' component={Home} />
-              <Route path='/flashcards' component={FlashcardList} />
-              <Route path='/contact' component={Contact} />
-              <Route path='/about' component={About} />
+              <Route exact path='/flashcards' component={FlashcardList} />
+              <Route exact path='/contact' component={Contact} />
+              <Route exact path='/about' component={About} />
               {/* <Route path='/flashcards/edit/:id' component={EditFlashcard} /> */}
               {/* <Route path='/users/edit/:id' component={EditUser} /> */}
-              <Route path='/flashcards/add' component={CreateFlashcard} />
+              <Route exact path='/flashcards/add' component={CreateFlashcard} />
               {/* <Route path='/user/add' component={CreateUser} /> */}
           </Router>
         </React.Fragment>
