@@ -2,9 +2,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const chineseWordSchema = new Schema({
-    word: {
+    simplifiedWord: {
         type: String,
-        required: true,
+    },
+    traditionalWord: {
+        type: String,
     },
     pinyin: {
         type: String,
@@ -13,13 +15,18 @@ const chineseWordSchema = new Schema({
     zhuyin: {
         type: String,
     },
-    definedSentence: [{
-        definition: {
-            type: String,
-        },
-        sentence: {
-            type: String,
-        }
+    definition: {
+        type: String,
+        required: true,
+    },
+    sentence: {
+        type: String,
+    },
+    sentenceTranslation: {
+        type: String,
+    },
+    partsOfSpeech: [{
+        type: String,
     }],
     image: {
         data: Buffer,

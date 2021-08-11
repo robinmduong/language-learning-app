@@ -1,3 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-// export default SingleFlashcard;
+class FlashcardPage extends Component {
+    render() {
+        return (
+            
+            <p>This is a most wonderful nav Page</p>
+        )
+    }
+}
+
+export default FlashcardPage;

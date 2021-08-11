@@ -1,19 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
-import FlashcardPage from './components/FlashcardPage';
-import './app.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
+  <Router>
       <Header />
-      <App />
+      <div className='page-contents'>
+        <App />
+      </div>
       <Footer />
-    </BrowserRouter>
-  </React.StrictMode>,
+  </Router>,
   document.getElementById('root')
 );
