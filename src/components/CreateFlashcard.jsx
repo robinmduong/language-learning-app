@@ -1,4 +1,5 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
+import axios from 'axios';
 
 class CreateFlashcard extends Component {
 
@@ -6,8 +7,8 @@ class CreateFlashcard extends Component {
         super(props);
 
         // Bindings so "this" refers to the CreatFlashcard class
-        this.onChangeTraditionalWord = this.onChangeTraditionalWord.bind(this);
         this.onChangeSimplifiedWord = this.onChangeSimplifiedWord.bind(this);
+        this.onChangeTraditionalWord = this.onChangeTraditionalWord.bind(this);
         this.onChangePinyin = this.onChangePinyin.bind(this);
         this.onChangeZhuyin = this.onChangeZhuyin.bind(this);
         this.onChangeDefinition = this.onChangeDefinition.bind(this);
@@ -18,8 +19,8 @@ class CreateFlashcard extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            traditionalWord: '', 
             simplifiedWord: '',
+            traditionalWord: '', 
             pinyin: '',
             zhuyin: '',
             definition: '',
@@ -35,18 +36,18 @@ class CreateFlashcard extends Component {
     // }
 
     // whenever someone adds something to the form, it calls this and set state:
+    onChangeSimplifiedWord(e) {
+        this.setState({
+            simplifiedWord: e.target.value
+        })
+    }
+
     onChangeTraditionalWord(e) {
         this.setState({
             traditionalWord: e.target.value
         })
     }
 
-    onChangeSimplifiedWord(e) {
-        this.setState({
-            simplifiedWord: e.target.value
-        })
-    }
-    
     onChangePinyin(e) {
         this.setState({
             pinyin: e.target.value
@@ -91,16 +92,33 @@ class CreateFlashcard extends Component {
         e.preventDefault(); // prevent default, instead do what's below:
 
         const chineseWord = {
-            traditionalWord: this.state.traditionalWord,
             simplifiedWord: this.state.simplifiedWord,
+            traditionalWord: this.state.traditionalWord,
+            pinyin: this.state.pinyin,
+            zhuyin: this.state.zhuyin,
             definition: this.state.definition,
             sentence: this.state.sentence,
             sentenceTranslation: this.state.sentenceTranslation,
             partsOfSpeech: this.state.partsOfSpeech,
             image: this.state.image
         }
-
+        
         console.log(chineseWord);
+
+        let axiosConfig = {
+            headers: {
+                'Content-Type': 'application/json;charset=UTF-8',
+                "Access-Control-Allow-Origin": "*",
+            }
+          };
+          
+        axios.post('http://localhost:3000/chinese-words/add', chineseWord, axiosConfig)
+            .then(res => console.log(res.data))
+            .catch(err => console.log('Error: ', err.response));
+
+        //Send chinese word data to backend
+        // axios.post('http://localhost:3000/chinese-words/add', chineseWord)
+            // .then(res => console.log(res.data));
 
         window.location = '/flashcards'; // take the user back to list of flashcards
     }
