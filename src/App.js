@@ -1,29 +1,37 @@
-// import React, { Component} from 'react';
-// import {
-//   BrowserRouter,
-//   Route
-// } from 'react-router-dom';
-// import './app.css';
+import React, { Component} from 'react';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
+import './app.css';
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <BrowserRouter>
-//         <p>Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test</p>
-//         <p>Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test</p>
-//         <p>Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test</p>
-//         <p>Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test</p>
-//         <p>Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test</p>
-//         <p>Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test</p>
-//         <p>Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test</p>
-//         <p>Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test</p>
-//         <p>Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test</p>
-//         <p>Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test</p>
-//         <p>Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test</p>
-//         {/* <Route exact path="/flashcard" component={FlashcardPage} /> */}
-//       </BrowserRouter>
-//     )
-//   }
-// }
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import FlashcardList from './components/FlashcardList'
 
-// export default App;
+import CreateFlashcard from './components/CreateFlashcard';
+// import EditFlashcard from './components/EditFlashcard';
+// import CreateUser from './components/CreateUser';
+// import EditUser from './components/EditUser';
+
+class App extends Component {
+  render() {
+    return (
+        <React.Fragment>
+          <Router>
+              <Route exact path='/' component={Home} />
+              <Route path='/flashcards' component={FlashcardList} />
+              <Route path='/contact' component={Contact} />
+              <Route path='/about' component={About} />
+              {/* <Route path='/flashcards/edit/:id' component={EditFlashcard} /> */}
+              {/* <Route path='/users/edit/:id' component={EditUser} /> */}
+              <Route path='/flashcards/add' component={CreateFlashcard} />
+              {/* <Route path='/user/add' component={CreateUser} /> */}
+          </Router>
+        </React.Fragment>
+    )
+  }
+}
+
+export default App;

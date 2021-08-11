@@ -1,7 +1,10 @@
 body {
   background-color: white;
   font-family: sans-serif;
-  padding-top: 200px;
+}
+
+.page-contents {
+  padding: 100px 50px 50px;
 }
 
 .header {
@@ -36,4 +39,9 @@ body {
   background-color: #a4c2f0;
   bottom: 0;
   padding: 20px;
+}
+
+.footer a {
+  text-decoration: none;
+  padding: 20px 20px;
 }
