@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 
 export default function Flashcard({ flashcard }) {
-    const [flip, setFlip] = useState(false);
+    const [flip, setFlip] = useState(true);
     
     return (
         <div
@@ -10,6 +10,9 @@ export default function Flashcard({ flashcard }) {
         >
             {flip ?
                 <div className="answer-wrapper">
+                    <div className="definition-wrapper">
+                        <p className="definition">{flashcard.definition ? flashcard.definition : ''}</p>
+                    </div>
                     <div className="phonetic-wrapper">
                         <p className="zhuyin">{flashcard.zhuyin ? flashcard.zhuyin : ''}</p>
                         <p className="pinyin">{flashcard.pinyin ? flashcard.pinyin : ''}</p>

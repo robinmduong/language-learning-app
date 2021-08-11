@@ -45,3 +45,56 @@ body {
   text-decoration: none;
   padding: 20px 20px;
 }
+
+/* Flashcard */
+
+.flashcard {
+  background-color: white;
+  border-radius: 0.6rem; /* rounded corners */
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2); /* left right blur spread-out, color and transparency */
+  display:flex;
+  height: 400px;
+  overflow: auto;
+  margin: 2rem auto;
+  padding: 1rem;
+  position: relative; /* according to normal flow of doc, and relative to itself based on T/R/B/L */
+  width: 700px;
+}
+
+.flashcard:hover{
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+.answer-wrapper, 
+.question-wrapper {
+  font-size: 1.5em;
+  margin: auto;
+  text-align: center;
+}
+
+.zhuyin {
+  font-size:1.5em;
+  text-align: center;
+}
+
+.pinyin {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.phonetic-wrapper {
+  line-height: 0.8em;
+}
+
+.sentence-wrapper {
+  line-height: 0.8em;
+  text-align: left;
+}
+
+.traditionalWord, .simplifiedWord {
+  font-size: 2em;
+}
+
+.traditionalSentence, .simplifiedSentence {
+  font-size: 1.3em;
+}
