@@ -19,10 +19,13 @@ const chineseWordSchema = new Schema({
         type: String,
         required: true,
     },
-    sentence: {
+    simplifiedSentence: {
         type: String,
     },
-    sentenceTranslation: {
+    traditionalSentence: {
+        type: String,
+    },
+    translatedSentence: {
         type: String,
     },
     partsOfSpeech: [{
@@ -32,6 +35,14 @@ const chineseWordSchema = new Schema({
         data: Buffer,
         contentType: String
     },
+    wordAudio: {
+        data: Buffer,
+        contentType: String
+    },
+    sentenceAudio: {
+        data: Buffer,
+        contentType: String
+    }
 }, {
     timestamps: true,
 });
