@@ -20,8 +20,8 @@ export default function Flashcard({ flashcard }) {
                 {flip ?
                     //Front of Flashcard
                     <div class="question-wrapper">
-                        <p className="traditionalWord">{flashcard.traditionalWord ? flashcard.traditionalWord + " (T)" : ""}</p>
                         <p className="simplifiedWord">{flashcard.simplifiedWord ? flashcard.simplifiedWord + " (S)" : ""}</p>
+                        <p className="traditionalWord">{flashcard.traditionalWord ? flashcard.traditionalWord + " (T)" : ""}</p>
                     </div>
                     :
                     //Back of Flashcard

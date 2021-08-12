@@ -12,8 +12,8 @@ class EditFlashcard extends Component {
         this.onChangePinyin = this.onChangePinyin.bind(this);
         this.onChangeZhuyin = this.onChangeZhuyin.bind(this);
         this.onChangeDefinition = this.onChangeDefinition.bind(this);
-        this.onChangeTraditionalSentence = this.onChangeTraditionalSentence.bind(this);
         this.onChangeSimplifiedSentence = this.onChangeSimplifiedSentence.bind(this);
+        this.onChangeTraditionalSentence = this.onChangeTraditionalSentence.bind(this);
         this.onChangeTranslatedSentence = this.onChangeTranslatedSentence.bind(this);
         this.onChangePartsOfSpeech = this.onChangePartsOfSpeech.bind(this);
         this.onChangeImage = this.onChangeImage.bind(this);
@@ -108,13 +108,13 @@ class EditFlashcard extends Component {
     
     onChangeSimplifiedSentence(e) {
         this.setState({
-            sentence: e.target.value
+            simplifiedSentence: e.target.value
         })
     }
     
     onChangeTraditionalSentence(e) {
         this.setState({
-            sentence: e.target.value
+            traditionalSentence: e.target.value
         })
     }
     
@@ -156,7 +156,7 @@ class EditFlashcard extends Component {
             pinyin: this.state.pinyin,
             zhuyin: this.state.zhuyin,
             definition: this.state.definition,
-            simplifiedSentence: this.state.sentence,
+            simplifiedSentence: this.state.simplifiedSentence,
             traditionalSentence: this.state.traditionalSentence,
             translatedSentence: this.state.translatedSentence,
             partsOfSpeech: this.state.partsOfSpeech,
@@ -165,7 +165,9 @@ class EditFlashcard extends Component {
             sentenceAudio: this.state.sentenceAudio
         }
         
-        // console.log(chineseWord);
+        // Retrieve the ID
+        const flashcard_id = this.props.match.params.id;
+        console.log(flashcard_id);
 
         let axiosConfig = {
             headers: {
@@ -174,9 +176,10 @@ class EditFlashcard extends Component {
             }
           };
           
-        axios.post('http://localhost:3000/chinese-words/add', chineseWord, axiosConfig)
+        axios.post('http://localhost:3000/chinese-words/update/' + flashcard_id, chineseWord, axiosConfig)
             .then(res => console.log(res.data))
             .catch(err => console.log('Error: ', err.response));
+
 
         //Send chinese word data to backend
         // axios.post('http://localhost:3000/chinese-words/add', chineseWord)
@@ -298,7 +301,7 @@ class EditFlashcard extends Component {
                     <div className="form-group">
                         <input 
                             type="submit"
-                            value="Add New Word"
+                            value="Update Word"
                             className="btn submit-button"
                         />
                     </div>

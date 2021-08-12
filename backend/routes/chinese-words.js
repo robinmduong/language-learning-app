@@ -8,8 +8,8 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    const traditionalWord = req.body.traditionalWord;
     const simplifiedWord = req.body.simplifiedWord;
+    const traditionalWord = req.body.traditionalWord;
     const pinyin = req.body.pinyin;
     const zhuyin = req.body.zhuyin;
     const definition = req.body.definition;
@@ -20,8 +20,8 @@ router.route('/add').post((req, res) => {
     const image = req.body.image;
 
     const newChineseWord = new ChineseWord({
-        traditionalWord, 
         simplifiedWord,
+        traditionalWord, 
         pinyin,
         zhuyin,
         definition,
@@ -55,7 +55,8 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
     ChineseWord.findById(req.params.id)
         .then(chineseword => {
-            chineseword.word = req.body.word;
+            chineseword.simplifiedWord = req.body.simplifiedWord;
+            chineseword.traditionalWord = req.body.traditionalWord;
             chineseword.pinyin = req.body.pinyin;
             chineseword.zhuyin = req.body.zhuyin;
             chineseword.definition = req.body.definition;

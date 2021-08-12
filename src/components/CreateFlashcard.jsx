@@ -12,8 +12,8 @@ class CreateFlashcard extends Component {
         this.onChangePinyin = this.onChangePinyin.bind(this);
         this.onChangeZhuyin = this.onChangeZhuyin.bind(this);
         this.onChangeDefinition = this.onChangeDefinition.bind(this);
-        this.onChangeTraditionalSentence = this.onChangeTraditionalSentence.bind(this);
         this.onChangeSimplifiedSentence = this.onChangeSimplifiedSentence.bind(this);
+        this.onChangeTraditionalSentence = this.onChangeTraditionalSentence.bind(this);
         this.onChangeTranslatedSentence = this.onChangeTranslatedSentence.bind(this);
         this.onChangePartsOfSpeech = this.onChangePartsOfSpeech.bind(this);
         this.onChangeImage = this.onChangeImage.bind(this);
@@ -74,13 +74,13 @@ class CreateFlashcard extends Component {
     
     onChangeSimplifiedSentence(e) {
         this.setState({
-            sentence: e.target.value
+            simplifiedSentence: e.target.value
         })
     }
     
     onChangeTraditionalSentence(e) {
         this.setState({
-            sentence: e.target.value
+            traditionalSentence: e.target.value
         })
     }
     
@@ -122,7 +122,7 @@ class CreateFlashcard extends Component {
             pinyin: this.state.pinyin,
             zhuyin: this.state.zhuyin,
             definition: this.state.definition,
-            simplifiedSentence: this.state.sentence,
+            simplifiedSentence: this.state.simplifiedSentence,
             traditionalSentence: this.state.traditionalSentence,
             translatedSentence: this.state.translatedSentence,
             partsOfSpeech: this.state.partsOfSpeech,
