@@ -1,36 +1,49 @@
 import React, { Component, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Flashcard({ flashcard }) {
     const [flip, setFlip] = useState(true);
     
     return (
+        <React.Fragment>
         <div
-            className="flashcard 'flip' ? 'flip' : ''"
-            onClick={() => setFlip(!flip)}
+            className="flashcard"
         >
-            {flip ?
-                <div className="answer-wrapper">
-                    <div className="definition-wrapper">
-                        <p className="definition">{flashcard.definition ? flashcard.definition : ''}</p>
+            <div className="card-button">
+                {console.log("FLASHCARD: ", flashcard._id)}
+                <Link to={"flashcards/edit/"+flashcard._id}><button className="edit-card-button">Edit</button></Link>
+                {/* <button onClick={() => {props.deleteFlashcard(props)}} className="delete-card-button">Delete</button> */}
+            </div>
+            <div className="flashcard-text 'flip' ? 'flip' : ''"
+                 onClick={() => setFlip(!flip)}
+            >
+                {flip ?
+                    //Front of Flashcard
+                    <div class="question-wrapper">
+                        <p className="traditionalWord">{flashcard.traditionalWord ? flashcard.traditionalWord + " (T)" : ""}</p>
+                        <p className="simplifiedWord">{flashcard.simplifiedWord ? flashcard.simplifiedWord + " (S)" : ""}</p>
                     </div>
-                    <div className="phonetic-wrapper">
-                        <p className="zhuyin">{flashcard.zhuyin ? flashcard.zhuyin : ''}</p>
-                        <p className="pinyin">{flashcard.pinyin ? flashcard.pinyin : ''}</p>
+                    :
+                    //Back of Flashcard
+                    <div className="answer-wrapper">
+                        <div className="definition-wrapper">
+                            <p className="definition">{flashcard.definition ? flashcard.definition : ''}</p>
+                        </div>
+                        <div className="phonetic-wrapper">
+                            <p className="zhuyin">{flashcard.zhuyin ? flashcard.zhuyin : ''}</p>
+                            <p className="pinyin">{flashcard.pinyin ? flashcard.pinyin : ''}</p>
+                        </div>
+                        <p className="partOfSpeech">{flashcard.partOfSpeech ? flashcard.partOfSpeech + " " + flashcard.definition : ''}</p>
+                        <hr />
+                        <div className="sentence-wrapper">
+                            <p className="traditionalSentence">{flashcard.traditionalSentence ? flashcard.traditionalSentence + '(T)': ''}</p>
+                            <p className="simplifiedSentence">{flashcard.simplifiedSentence ? flashcard.simplifiedSentence + '(S)': ''}</p>
+                            <p className="translatedSentence">{flashcard.translatedSentence ? flashcard.translatedSentence : ''}</p>
+                        </div>
                     </div>
-                    <p className="partOfSpeech">{flashcard.partOfSpeech ? flashcard.partOfSpeech + " " + flashcard.definition : ''}</p>
-                    <hr />
-                    <div className="sentence-wrapper">
-                        <p className="traditionalSentence">{flashcard.traditionalSentence ? flashcard.traditionalSentence + '(trad.)': ''}</p>
-                        <p className="simplifiedSentence">{flashcard.simplifiedSentence ? flashcard.simplifiedSentence + '(simp.)': ''}</p>
-                        <p className="translatedSentence">{flashcard.translatedSentence ? flashcard.translatedSentence : ''}</p>
-                    </div>
-                </div>
-                :
-                <div class="question-wrapper">
-                    <p className="traditionalWord">{flashcard.traditionalWord ? flashcard.traditionalWord + " (trad.)" : ""}</p>
-                    <p className="simplifiedWord">{flashcard.simplifiedWord ? flashcard.simplifiedWord + " (simp.)" : ""}</p>
-                </div>
-            }
+                }
+            </div>
         </div>
+        </React.Fragment>
     )
 }

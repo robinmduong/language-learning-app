@@ -13,8 +13,9 @@ router.route('/add').post((req, res) => {
     const pinyin = req.body.pinyin;
     const zhuyin = req.body.zhuyin;
     const definition = req.body.definition;
-    const sentence = req.body.sentence;
-    const sentenceTranslation = req.body.sentenceTranslation;
+    const simplifiedSentence = req.body.simplifiedSentence;
+    const traditionalSentence = req.body.traditionalSentence;
+    const translatedSentence = req.body.translatedSentence;
     const partsOfSpeech = req.body.partsOfSpeech;
     const image = req.body.image;
 
@@ -24,8 +25,9 @@ router.route('/add').post((req, res) => {
         pinyin,
         zhuyin,
         definition,
-        sentence,
-        sentenceTranslation,
+        simplifiedSentence,
+        traditionalSentence,
+        translatedSentence,
         partsOfSpeech,
         image
     });
@@ -57,8 +59,13 @@ router.route('/update/:id').post((req, res) => {
             chineseword.pinyin = req.body.pinyin;
             chineseword.zhuyin = req.body.zhuyin;
             chineseword.definition = req.body.definition;
+            chineseword.simplifiedSentence = req.body.simplifiedSentence;
+            chineseword.traditionalSentence = req.body.traditionalSentence;
+            chineseword.translatedSentence = req.body.translatedSentence;
             chineseword.sentence = req.body.sentence;
-            chineseword.image = req.body.image
+            chineseword.image = req.body.image;
+            chineseword.wordAudio = req.body.wordAudio;
+            chineseword.sentenceAudio = req.body.sentenceAudio;
 
             chineseword.save()
                 .then(() => res.json('Chinese Word Updated'))

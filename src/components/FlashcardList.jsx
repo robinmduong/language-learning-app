@@ -24,19 +24,19 @@ class FlashcardList extends React.Component {
             })
     }
 
-    displayFlashcards = (flashcards) => {
-        if (!flashcards.length) {
-            return null;
-        };
+    // displayFlashcards = (flashcards) => {
+    //     if (!flashcards.length) {
+    //         return null;
+    //     };
 
-        return flashcards.map((flashcard, index) => {
-            <div key={index}>
-                <h3>{flashcard.traditionalWord}</h3>
-                <p>{flashcard.simplifiedWord}</p>
-                <p>{flashcard.definition}</p>
-            </div>
-        });
-    }
+    //     return flashcards.map((flashcard, index) => {
+    //         <div key={index}>
+    //             <h3>{flashcard.traditionalWord}</h3>
+    //             <p>{flashcard.simplifiedWord}</p>
+    //             <p>{flashcard.definition}</p>
+    //         </div>
+    //     });
+    // }
 
     render() {
         const flashcards = this.state.flashcards;
@@ -44,9 +44,9 @@ class FlashcardList extends React.Component {
         return (
             <React.Fragment>
                 <a href="/flashcards/add"><button>Add Flashcard</button></a>
-                <div className="flashcards">
+                {/* <div className="flashcards">
                     {this.displayFlashcards(this.state.flashcards)}
-                </div>
+                </div> */}
                 <div className="card-grid">
                     {flashcards.map(flashcard => {
                         return <SingleFlashcard 

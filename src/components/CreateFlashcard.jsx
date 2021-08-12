@@ -12,10 +12,13 @@ class CreateFlashcard extends Component {
         this.onChangePinyin = this.onChangePinyin.bind(this);
         this.onChangeZhuyin = this.onChangeZhuyin.bind(this);
         this.onChangeDefinition = this.onChangeDefinition.bind(this);
-        this.onChangeSentence = this.onChangeSentence.bind(this);
-        this.onChangeSentenceTranslation = this.onChangeSentenceTranslation.bind(this);
+        this.onChangeTraditionalSentence = this.onChangeTraditionalSentence.bind(this);
+        this.onChangeSimplifiedSentence = this.onChangeSimplifiedSentence.bind(this);
+        this.onChangeTranslatedSentence = this.onChangeTranslatedSentence.bind(this);
         this.onChangePartsOfSpeech = this.onChangePartsOfSpeech.bind(this);
         this.onChangeImage = this.onChangeImage.bind(this);
+        this.onChangeWordAudio = this.onChangeWordAudio.bind(this);
+        this.onChangeSentenceAudio = this.onChangeSentenceAudio.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -24,10 +27,13 @@ class CreateFlashcard extends Component {
             pinyin: '',
             zhuyin: '',
             definition: '',
-            sentence: '',
-            sentenceTranslation: '',
+            simplifiedSentence: '',
+            traditionalSentence: '',
+            translatedSentence: '',
             partsOfSpeech: [],
-            image: ''
+            image: '',
+            wordAudio: '',
+            sentenceAudio: '',
         }
     }
 
@@ -66,14 +72,21 @@ class CreateFlashcard extends Component {
         })
     }
     
-    onChangeSentence(e) {
+    onChangeSimplifiedSentence(e) {
         this.setState({
             sentence: e.target.value
         })
     }
-    onChangeSentenceTranslation(e) {
+    
+    onChangeTraditionalSentence(e) {
         this.setState({
-            sentenceTranslation: e.target.value
+            sentence: e.target.value
+        })
+    }
+    
+    onChangeTranslatedSentence(e) {
+        this.setState({
+            translatedSentence: e.target.value
         })
     }
     onChangePartsOfSpeech(e) {
@@ -88,6 +101,18 @@ class CreateFlashcard extends Component {
         })
     }
 
+    onChangeWordAudio(e) {
+        this.setState({
+            wordAudio: e.target.value
+        })
+    }
+
+    onChangeSentenceAudio(e) {
+        this.setState({
+            sentenceAudio: e.target.value
+        })
+    }
+
     onSubmit(e) {
         e.preventDefault(); // prevent default, instead do what's below:
 
@@ -97,13 +122,16 @@ class CreateFlashcard extends Component {
             pinyin: this.state.pinyin,
             zhuyin: this.state.zhuyin,
             definition: this.state.definition,
-            sentence: this.state.sentence,
-            sentenceTranslation: this.state.sentenceTranslation,
+            simplifiedSentence: this.state.sentence,
+            traditionalSentence: this.state.traditionalSentence,
+            translatedSentence: this.state.translatedSentence,
             partsOfSpeech: this.state.partsOfSpeech,
-            image: this.state.image
+            image: this.state.image,
+            wordAudio: this.state.wordAudio,
+            sentenceAudio: this.state.sentenceAudio
         }
         
-        console.log(chineseWord);
+        // console.log(chineseWord);
 
         let axiosConfig = {
             headers: {
@@ -174,30 +202,38 @@ class CreateFlashcard extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Sentence: </label>
+                        <label>Simplified Sentence: </label>
                         <textarea
                             className="form-control"
-                            value={this.state.sentence}
-                            onChange={this.onChangeSentence}
+                            value={this.state.simplifiedSentence}
+                            onChange={this.onChangeSimplifiedSentence}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Traditional Sentence: </label>
+                        <textarea
+                            className="form-control"
+                            value={this.state.traditionalSentence}
+                            onChange={this.onChangeTraditionalSentence}
                         />
                     </div>
                     <div className="form-group">
                         <label>Sentence Translation: </label>
                         <textarea
                             className="form-control"
-                            value={this.state.sentenceTranslation}
-                            onChange={this.onChangeSentenceTranslation}
+                            value={this.state.translatedSentence}
+                            onChange={this.onChangeTranslatedSentence}
                         />
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label>Part(s) of Speech: </label>
                         <textarea
                             className="form-control"
                             value={this.state.partsOfSpeech}
                             onChange={this.onChangePartsOfSpeech}
                         />
-                    </div>
-                    <div className="form-group">
+                    </div> */}
+                    {/* <div className="form-group">
                         <label>Image Upload: </label>
                         <input 
                             type="text"
@@ -206,6 +242,24 @@ class CreateFlashcard extends Component {
                             onChange={this.onChangeImage}
                         />
                     </div>
+                    <div className="form-group">
+                        <label>Word Audio Upload: </label>
+                        <input 
+                            type="text"
+                            className="form-control"
+                            value={this.state.wordAudio}
+                            onChange={this.onChangeWordAudio}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Sentence Audio Upload: </label>
+                        <input 
+                            type="text"
+                            className="form-control"
+                            value={this.state.sentenceAudio}
+                            onChange={this.onChangeSentenceAudio}
+                        />
+                    </div> */}
 
                     <div className="form-group">
                         <input 

@@ -11,7 +11,7 @@ import Contact from './components/Contact';
 import FlashcardList from './components/FlashcardList'
 
 import CreateFlashcard from './components/CreateFlashcard';
-// import EditFlashcard from './components/EditFlashcard';
+import EditFlashcard from './components/EditFlashcard';
 // import CreateUser from './components/CreateUser';
 // import EditUser from './components/EditUser';
 
@@ -24,7 +24,7 @@ class App extends Component {
               <Route exact path='/flashcards' component={FlashcardList} />
               <Route exact path='/contact' component={Contact} />
               <Route exact path='/about' component={About} />
-              {/* <Route path='/flashcards/edit/:id' component={EditFlashcard} /> */}
+              <Route path='/flashcards/edit/:id' component={EditFlashcard} />
               {/* <Route path='/users/edit/:id' component={EditUser} /> */}
               <Route exact path='/flashcards/add' component={CreateFlashcard} />
               {/* <Route path='/user/add' component={CreateUser} /> */}
