@@ -1,12 +1,14 @@
 const router = require('express').Router();
 let ChineseWord = require('../models/chinese-word.model');
 
+// Get All Chinese Words
 router.route('/').get((req, res) => {
     ChineseWord.find()
         .then(chineseword => res.json(chineseword))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+// Add Chinese word
 router.route('/add').post((req, res) => {
     const simplifiedWord = req.body.simplifiedWord;
     const traditionalWord = req.body.traditionalWord;
@@ -45,7 +47,7 @@ router.route('/:id').get((req, res) => {
 })
 
 // Delete Chinese Word By Id
-router.route('/:id').delete((req, res) => {
+router.route('/delete/:id').delete((req, res) => {
     ChineseWord.findByIdAndDelete(req.params.id)
         .then(() => res.json('Chinese Word Deleted.'))
         .catch(err => res.status(400).json('Error: ', err));

@@ -177,13 +177,12 @@ class EditFlashcard extends Component {
           };
           
         axios.post('http://localhost:3000/chinese-words/update/' + flashcard_id, chineseWord, axiosConfig)
-            .then(res => console.log(res.data))
-            .catch(err => console.log('Error: ', err.response));
-
-
-        //Send chinese word data to backend
-        // axios.post('http://localhost:3000/chinese-words/add', chineseWord)
-            // .then(res => console.log(res.data));
+            .then(
+                res => console.log(res.data)
+            )
+            .catch(
+                err => console.log('Error: ', err.response)
+        );
 
         window.location = '/flashcards'; // take the user back to list of flashcards
     }

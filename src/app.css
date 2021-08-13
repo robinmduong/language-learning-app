@@ -1,10 +1,22 @@
+
+
 body {
   background-color: white;
   font-family: sans-serif;
+  line-height: 2em;
+}
+
+a, u {
+  color: darkblue;
+  text-decoration: none;
 }
 
 .page-contents {
   padding: 100px 50px 50px;
+}
+
+.page-contents div {
+  text-decoration: none;
 }
 
 .header {
@@ -26,7 +38,7 @@ body {
 }
 
 .header a {
-  color: blue;
+  color: darkblue;
   display: inline-block;
   font-size: 1.1em;
   height: 30px;
@@ -42,6 +54,7 @@ body {
 }
 
 .footer a {
+  color: white;
   text-decoration: none;
   padding: 20px 20px;
 }
@@ -127,4 +140,47 @@ body {
 .delete-card-button {
   height: 20px;
   display: inline-block;
+}
+
+/* Tables */
+
+/* Features Table */
+.features-table {
+  border: 1px solid #a4c2f0;
+  text-align: left;
+  width: 100%;
+}
+
+.features-table th, tr {
+  text-align: center;
+}
+
+.features-table td {
+  padding: 15px;
+}
+
+/* Features Column List Should Align Left */
+.features-table td:nth-child(2) {
+  text-align: left;
+  padding: 20px;
+}
+
+.features-table tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+.features-table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+.features-table th {
+  color: white;
+  background-color: #a4c2f0;
+}
+
+.features-table .inner-table {
+  min-width: 60%;
+  text-align: left;
+}
+
+.features-table .inner-table td {
+  text-align: left;
 }
