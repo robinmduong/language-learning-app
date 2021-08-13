@@ -8,6 +8,7 @@ import './app.css';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
+import Features from './components/Features';
 import FlashcardList from './components/FlashcardList'
 
 import CreateFlashcard from './components/CreateFlashcard';
@@ -23,6 +24,7 @@ class App extends Component {
               <Route exact path='/' component={Home} />
               <Route exact path='/flashcards' component={FlashcardList} />
               <Route exact path='/contact' component={Contact} />
+              <Route exact path='/features' component={Features} />
               <Route exact path='/about' component={About} />
               <Route path='/flashcards/edit/:id' component={EditFlashcard} />
               {/* <Route path='/users/edit/:id' component={EditUser} /> */}
