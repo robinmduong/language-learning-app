@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-// import Canvas from './Canvas'
+// import Canvas from './Canvas';
 
 class Home extends Component {
     render() {
         return (
+            <React.Fragment>
             <div className="home-wrapper page-wrapper">
                 <p>Welcome back to the number-one language learning stop!</p>
                 <p>What do you feel like doing?</p>
@@ -12,8 +13,9 @@ class Home extends Component {
                     <li><a href="/flashcards">Studying Flashcards . . .  ≧◉◡◉≦</a></li>
                     <li><a href="/flashcards">Procrastinating . . . . . . . . (๑ᵕ⌓ᵕ̤)</a></li>
                 </ul>
-                {/* <Canvas /> */}
             </div>
+            {/* <Canvas /> */}
+            </React.Fragment>
         )
     }
 }
