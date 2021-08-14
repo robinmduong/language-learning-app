@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SingleFlashcard from './SingleFlashcard';
 import axios from 'axios';
 
-class FlashcardList extends React.Component {
+class FlashcardList extends Component {
     state = {
         flashcards: []
     };
